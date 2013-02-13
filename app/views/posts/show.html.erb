@@ -1,0 +1,14 @@
+<% content_for :head do %>
+  <% if @post.meta_description.present? %>
+    <meta name="description" content="<%= @post.meta_description %>" />
+  <% end %>
+
+  <% if @post.keywords.present? %>
+    <meta name="keywords" content="<%= @post.keywords %>" />
+  <% end %>
+
+  <title><%= @post.title %></title>
+<% end %>
+
+<%= render partial: "posts/content", locals: {post: @post} %>
+

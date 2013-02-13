@@ -1,0 +1,63 @@
+<header class="main-header">
+  <hgroup>
+    <div class="picture">
+      <a href="/" rel="home"></a>
+    </div>
+    <h1><%= Personal.full_name %></h1>
+    <h2><%= raw Personal.description %></h2>
+  </hgroup>
+
+  <nav>
+    <ul class="main-nav">
+      <li><a href="/" id="home-link">Home</a></li>
+
+      <% if Facebook.enabled? %>
+        <li><%= link_to "Facebook", Facebook.url, id: "facebook-link" %></li>
+      <% end %>
+
+      <% if Twitter.enabled? %>
+        <li><%= link_to "Twitter", Twitter.url, id: "twitter-link" %></li>
+      <% end %>
+
+      <% if Github.enabled? %>
+        <li><%= link_to "Github", Github.url, id: "github-link" %></li>
+      <% end %>
+
+      <% if Bitbucket.enabled? %>
+        <li><%= link_to "Bitbucket", Bitbucket.url, id: "bitbucket-link" %></li>
+      <% end %>
+
+      <% if Dribbble.enabled? %>
+        <li><%= link_to "Dribbble", Dribbble.url, id: "dribbble-link" %></li>
+      <% end %>
+
+      <% if Instagram.enabled? %>
+        <li><%= link_to "Instagram", Instagram.url, id: "instagram-link" %></li>
+      <% end %>
+
+      <% if Lastfm.enabled? %>
+        <li><%= link_to "Last.fm", Lastfm.url, id: "lastfm-link" %></li>
+      <% end %>
+
+      <% if Foursquare.enabled? %>
+        <li><%= link_to "Foursquare", Foursquare.url, id: "foursquare-link" %></li>
+      <% end %>
+
+      <% if Stackoverflow.enabled? %>
+        <li><%= link_to "StackOverflow", Stackoverflow.url, id: "stackoverflow-link" %></li>
+      <% end %>
+
+      <% if Soundcloud.enabled? %>
+        <li><%= link_to "Soundcloud", Soundcloud.url, id: "soundcloud-link" %></li>
+      <% end %>
+
+      <% if Steam.enabled? %>
+        <li><%= link_to "Steam", Steam.url, id: "steam-link" %></li>
+      <% end %>
+
+      <li>
+        <%= link_to "Contact", Personal.mailto, id: "contact-link" %>
+      </li>
+    </ul>
+  </nav>
+</header>

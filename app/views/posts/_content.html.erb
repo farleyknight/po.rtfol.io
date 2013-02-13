@@ -1,0 +1,58 @@
+<article id="<%= post.id %>">
+  <hgroup>
+    <h2><a href="<%= post_path(post) %>"><%= post.title %>&nbsp;</a></h2>
+    <h3><a href="<%= post.id %>"><%= post.formatted_date %></a></h3>
+  </hgroup>
+
+  <%= raw post.body %>
+
+  <% if post.show_more? %>
+    <p><a href="<%= post_path(post) %>" class="read-more-link">read more</a></p>
+  <% end %>
+  <footer>
+    <% if post.tags? %>
+      <h4>Tags</h4>
+      <ul class="tags">
+        <% post.tags.each do |tag| %>
+          <li><a href="<%= tag_path(tag) %>"><%= tag %></a></li>
+        <% end %>
+      </ul>
+
+      <% if Ryte.config.sharethis.present? %>
+        <div class="sharethis">
+          <% if Ryte.config.sharethis[:facebook] %>
+            <span class='st_facebook_hcount' displayText='Facebook'></span>
+          <% end %>
+
+          <% if Ryte.config.sharethis[:twitter] %>
+            <span class='st_twitter_hcount' displayText='Tweet'></span>
+          <% end %>
+
+          <% if Ryte.config.sharethis[:linkedin] %>
+            <span class='st_linkedin_hcount' displayText='LinkedIn'></span>
+          <% end %>
+
+          <% if Ryte.config.sharethis[:google_plus] %>
+            <span class='st_googleplus_hcount' displayText='Google +'></span>
+          <% end %>
+
+          <% if Ryte.config.sharethis[:sharethis] %>
+            <span class='st_sharethis_hcount' displayText='ShareThis'></span>
+          <% end %>
+
+          <% if Ryte.config.sharethis[:email] %>
+            <span class='st_email_hcount' displayText='Email'></span>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if Ryte.config.disqus.present? %>
+        <div id="disqus_thread" class="disqus-thread">
+          <a href="/post/<%= post.id %>#disqus_thread" class="comments"></a>
+        </div>
+      <% end %>
+    <% end %>
+  </footer>
+</article>
+
+<% # @todo (farleyknight@gmail.com): Add Disqus integration %>

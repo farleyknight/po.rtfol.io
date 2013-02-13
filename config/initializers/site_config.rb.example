@@ -1,0 +1,48 @@
+
+# Your info
+Ryte.config.personal = {
+  full_name:   "[YOUR NAME HERE]",
+  email:       "[YOUR EMAIL HERE]",
+  description: "[YOUR DESCRIPTION HERE, (HTML is okay)]"
+
+  # @todo (farleyknight@gmail.com):
+  # Add support for gravatar as the main image.
+}
+
+# Wordpress
+Ryte.config.wordpress = {
+  # url: "[yourname.wordpress.com]"
+}
+
+# Tumblr
+Ryte.config.tumblr = {
+  # api_url: "",
+  # api_key: ""
+}
+
+# RSS Feed
+Ryte.config.rss_feed = {
+  # NOTE: This defaults to your blog RSS feed.
+  # url: ""
+}
+
+Ryte.config.facebook = {
+  # username: ""
+}
+
+# Twitter
+Ryte.config.twitter = {
+  # username: "",
+  # consumer_key: "",
+  # consumer_secret: "",
+  # user_key: "",
+  # user_secret: ""
+}
+
+# Github
+Ryte.config.github = {
+  # username: "",
+  # access_token: "",
+  # client_id: "",
+  # client_secret: ""
+}

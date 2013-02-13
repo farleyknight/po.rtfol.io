@@ -1,0 +1,45 @@
+<div class="profile github modal fade" id="github-profile">
+  <div class="profile-info">
+    <button class="close" data-dismiss="modal">×</button>
+    <a href="http://github.com/<%= Github.login %>" class="profile-avatar">
+      <img src="http://gravatar.com/avatar/<%= Github.gravatar_id %>" alt="<%= Github.name %>" />
+    </a>
+    <div class="profile-name">
+      <h2><a href="http://github.com/<%= Github.login %>"><%= Github.name %></a></h2>
+      <h3><a href="http://github.com/<%= Github.login %>"><%= Github.login %></a></h3>
+    </div>
+   <p class="profile-location-url">
+      <% if Github.location.present? %>
+        <span><%= Github.location %></span>
+        <span class="divider">·</span>
+      <% end %>
+
+      <% if Github.blog.present? %>
+        <span><a href="<%= Github.blog %>"><%= Github.blog %></a></span>
+      <% end %>
+    </p>
+  </div>
+  <ul class="profile-stats">
+    <li><a href="http://github.com/<%= Github.login %>"><strong><%= Github.repo_count %></strong> repos</a></li>
+    <li><a href="http://github.com/<%= Github.login %>/following"><strong><%= Github.following %></strong> following</a></li>
+    <li><a href="http://github.com/<%= Github.login %>/followers"><strong><%= Github.followers %></strong> followers</a></li>
+  </ul>
+  <div class="profile-info-footer">
+    <a href="http://github.com/<%= Github.login %>" class="btn">Follow on Github</a>
+  </div>
+  <ul class="profile-repos">
+    <% Github.repos.each do |repo| %>
+      <li>
+        <a href="<%= repo.html_url %>" class="profile-repo-name"><%= repo.name %></a>
+        <p class="profile-repo-text">
+          <%= repo.description %>
+        </p>
+        <ul class="profile-repo-stats">
+          <li><%= repo.language %></li>
+          <li><a href="<%= repo.html_url %>/watchers" class="profile-watchers"><%= repo.watchers %></a></li>
+          <li><a href="<%= repo.html_url %>/network" class="profile-forks"><%= repo.forks %></a></li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
