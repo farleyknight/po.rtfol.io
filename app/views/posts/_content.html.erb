@@ -4,9 +4,9 @@
     <h3><a href="<%= post.id %>"><%= post.formatted_date %></a></h3>
   </hgroup>
 
-  <%= raw post.body %>
+  <%= raw content %>
 
-  <% if post.show_more? %>
+  <% if show_more %>
     <p><a href="<%= post_path(post) %>" class="read-more-link">read more</a></p>
   <% end %>
   <footer>

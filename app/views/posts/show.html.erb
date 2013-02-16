@@ -10,5 +10,6 @@
   <title><%= @post.title %></title>
 <% end %>
 
-<%= render partial: "posts/content", locals: {post: @post} %>
-
+<section class="main-section blog-section" id="blog-posts">
+  <%= render partial: "posts/content", locals: {post: @post, content: @post.body, show_more: false} %>
+</section>

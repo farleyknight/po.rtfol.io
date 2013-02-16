@@ -1,4 +1,4 @@
-module Wordpress
+class Wordpress
   include HTTParty
 
   class << self
@@ -10,6 +10,14 @@ module Wordpress
 
     def posts
       get(posts_url)
+    end
+
+    def post_url(post_id)
+      posts_url + "/" + post_id.to_s
+    end
+
+    def find(post_id)
+      get(post_url(post_id))
     end
   end
 end

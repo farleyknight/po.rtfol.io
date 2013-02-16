@@ -11,5 +11,7 @@ module Twitter
     def url
       "http://twitter.com/#!/#{username}"
     end
+
+
   end
 end

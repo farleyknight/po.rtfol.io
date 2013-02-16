@@ -1,2 +1,2 @@
 
-require 'app/models/twitter'
+require Rails.root.join("app", "models", "twitter")

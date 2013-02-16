@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2'
+gem 'rails', '~> 3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,7 +14,6 @@ gem 'haml'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -27,12 +26,17 @@ end
 gem 'jquery-rails'
 
 group :development do
-  # gem "better_errors"
+  gem "better_errors"
   gem "binding_of_caller"
   gem "pry"
+  gem "pry-rails"
+  # gem "better_errors"
 end
 
 gem 'octokit'
+
+# Rails 4 stuff
+gem 'turbolinks'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

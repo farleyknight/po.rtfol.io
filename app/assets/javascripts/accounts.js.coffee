@@ -2,11 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(document).ready ->
+ready = ->
+  # jQuery.fn.exists -- Check if a DOM element exists.
   $.fn.exists = ->
-    $(@).length() > 0
+    @length > 0
 
-$(document).ready ->
+  # #github-link events
   $("#github-link").click (event) ->
     event.preventDefault()
     event.stopPropagation()
@@ -17,7 +18,7 @@ $(document).ready ->
         $("body").append(data)
         $("#github-profile").modal()
 
-$(document).ready ->
+  # #twitter-link events
   $("#twitter-link").click (event) ->
     event.preventDefault()
     event.stopPropagation()
@@ -27,3 +28,6 @@ $(document).ready ->
       $.get "/accounts/twitter", (data) ->
         $("body").append(data)
         $("#twitter-profile").modal()
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
