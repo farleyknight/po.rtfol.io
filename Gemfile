@@ -37,9 +37,11 @@ gem 'octokit'
 # Rails 4 stuff
 gem 'turbolinks'
 
-
 # Heroku bitching at me
 gem 'libv8', '~> 3.11.8'
+
+# Better settings
+gem "rails_config"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
