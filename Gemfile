@@ -5,7 +5,6 @@ gem 'rails', '~> 3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
 gem 'httparty'
 gem 'haml'
 
@@ -29,8 +28,14 @@ group :development do
   gem "binding_of_caller"
   gem "pry"
   gem "pry-rails"
+  gem 'sqlite3'
   # gem "better_errors"
 end
+
+group :production do
+  gem 'pg'
+end
+
 
 gem 'octokit'
 
@@ -49,8 +54,8 @@ gem "rails_config"
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use thin as the app server
+gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
