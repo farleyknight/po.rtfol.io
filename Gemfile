@@ -29,17 +29,25 @@ group :development do
   gem "binding_of_caller"
   gem "pry"
   gem "pry-rails"
+  gem 'sqlite3'
   # gem "better_errors"
 end
+
+group :production do
+  gem 'pg'
+end
+
 
 gem 'octokit'
 
 # Rails 4 stuff
 gem 'turbolinks'
 
-
 # Heroku bitching at me
 gem 'libv8', '~> 3.11.8'
+
+# Better settings
+gem "rails_config"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,8 +55,8 @@ gem 'libv8', '~> 3.11.8'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use thin as the app server
+gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'

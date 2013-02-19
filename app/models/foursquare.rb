@@ -1,7 +1,7 @@
 module Foursquare
   class << self
     def enabled?
-      Ryte.config.foursquare.present?
+      Settings.foursquare.present?
     end
 
     def url
@@ -13,11 +13,11 @@ module Foursquare
     end
 
     def username
-      Ryte.config.foursquare[:username]
+      Settings.foursquare[:username]
     end
 
     def user_id
-      Ryte.config.foursquare[:user_id]
+      Settings.foursquare[:user_id]
     end
   end
 end

@@ -1,11 +1,11 @@
 module Dribbble
   class << self
     def enabled?
-      Ryte.config.dribbble.present?
+      Settings.dribbble.present?
     end
 
     def username
-      Ryte.config.dribbble[:username]
+      Settings.dribbble[:username]
     end
 
     def url

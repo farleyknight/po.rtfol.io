@@ -18,35 +18,35 @@
         <% end %>
       </ul>
 
-      <% if Ryte.config.sharethis.present? %>
+      <% if Sharethis.enabled? %>
         <div class="sharethis">
-          <% if Ryte.config.sharethis[:facebook] %>
+          <% if Sharethis.facebook? %>
             <span class='st_facebook_hcount' displayText='Facebook'></span>
           <% end %>
 
-          <% if Ryte.config.sharethis[:twitter] %>
+          <% if Sharethis.twitter? %>
             <span class='st_twitter_hcount' displayText='Tweet'></span>
           <% end %>
 
-          <% if Ryte.config.sharethis[:linkedin] %>
+          <% if Sharethis.linkedin? %>
             <span class='st_linkedin_hcount' displayText='LinkedIn'></span>
           <% end %>
 
-          <% if Ryte.config.sharethis[:google_plus] %>
+          <% if Sharethis.google_plus? %>
             <span class='st_googleplus_hcount' displayText='Google +'></span>
           <% end %>
 
-          <% if Ryte.config.sharethis[:sharethis] %>
+          <% if Sharethis.sharethis? %>
             <span class='st_sharethis_hcount' displayText='ShareThis'></span>
           <% end %>
 
-          <% if Ryte.config.sharethis[:email] %>
+          <% if Sharethis.email? %>
             <span class='st_email_hcount' displayText='Email'></span>
           <% end %>
         </div>
       <% end %>
 
-      <% if Ryte.config.disqus.present? %>
+      <% if Disqus.enabled? %>
         <div id="disqus_thread" class="disqus-thread">
           <a href="/post/<%= post.id %>#disqus_thread" class="comments"></a>
         </div>

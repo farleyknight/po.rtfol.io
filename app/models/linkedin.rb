@@ -1,7 +1,7 @@
 module Linkedin
   class << self
     def enabled?
-      Ryte.config.linkedin.present?
+      Settings.linkedin.present?
     end
   end
 end

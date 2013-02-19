@@ -1,19 +1,19 @@
 module Personal
   class << self
     def full_name
-      Ryte.config.personal[:full_name]
+      Settings.personal[:full_name]
     end
 
     def description
-      Ryte.config.personal[:description]
+      Settings.personal[:description]
     end
 
     def email
-      Ryte.config.personal[:email]
+      Settings.personal[:email]
     end
 
     def subject
-      Ryte.config.personal[:subject_line] || "Hello"
+      Settings.personal[:subject_line] || "Hello"
     end
 
     def mailto

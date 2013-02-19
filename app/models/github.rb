@@ -1,11 +1,11 @@
 module Github
   class << self
     def enabled?
-      Ryte.config.github.present?
+      Settings.github.present?
     end
 
     def username
-      Ryte.config.github[:username]
+      Settings.github[:username]
     end
 
     def url
