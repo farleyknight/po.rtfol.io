@@ -1,11 +1,11 @@
 module Lastfm
   class << self
     def enabled?
-      Ryte.config.lastfm.present?
+      Settings.lastfm.present?
     end
 
     def username
-      Ryte.config.lastfm[:username]
+      Settings.lastfm[:username]
     end
 
     def url

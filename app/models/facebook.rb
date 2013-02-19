@@ -1,11 +1,11 @@
 module Facebook
   class << self
     def enabled?
-      Ryte.config.facebook.present?
+      Settings.facebook.present?
     end
 
     def username
-      Ryte.config.facebook[:username]
+      Settings.facebook[:username]
     end
 
     def url

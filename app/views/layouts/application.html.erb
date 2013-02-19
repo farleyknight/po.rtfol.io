@@ -9,13 +9,13 @@
   <%= csrf_meta_tags %>
 
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="<%= Ryte.config.rss_feed[:url] %>" />
+  <% if Settings.rss_feed.present? %>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="<%= Settings.rss_feed[:url] %>" />
+  <% end %>
 </head>
 <body>
+  <%= render partial: "layouts/nav" %>
 
-<%= render partial: "layouts/nav" %>
-
-<%= yield %>
-
+  <%= yield %>
 </body>
 </html>

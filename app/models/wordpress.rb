@@ -5,7 +5,7 @@ class Wordpress
     API_URL = "https://public-api.wordpress.com/rest/v1/sites/"
 
     def posts_url
-      API_URL + Ryte.config.wordpress[:url] + "/posts"
+      API_URL + Settings.wordpress[:url] + "/posts"
     end
 
     def posts

@@ -41,11 +41,11 @@ module Twitter
 
   class << self
     def enabled?
-      Ryte.config.twitter.present?
+      Settings.twitter.present?
     end
 
     def username
-      Ryte.config.twitter[:username]
+      Settings.twitter[:username]
     end
 
     def screen_name

@@ -1,11 +1,11 @@
 module Bitbucket
   class << self
     def enabled?
-      Ryte.config.bitbucket.present?
+      Settings.bitbucket.present?
     end
 
     def username
-      Ryte.config.bitbucket[:username]
+      Settings.bitbucket[:username]
     end
 
     def url

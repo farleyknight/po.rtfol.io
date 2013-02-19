@@ -1,11 +1,11 @@
 module Soundcloud
   class << self
     def enabled?
-      Ryte.config.soundcloud.present?
+      Settings.soundcloud.present?
     end
 
     def username
-      Ryte.config.soundcloud[:username]
+      Settings.soundcloud[:username]
     end
 
     def url

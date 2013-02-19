@@ -1,11 +1,11 @@
 module Steam
   class << self
     def enabled?
-      Ryte.config.steam.present?
+      Settings.steam.present?
     end
 
     def username
-      Ryte.config.steam[:username]
+      Settings.steam[:username]
     end
 
     def url

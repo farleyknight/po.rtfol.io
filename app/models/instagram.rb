@@ -1,11 +1,11 @@
 module Instagram
   class << self
     def enabled?
-      Ryte.config.instagram.present?
+      Settings.instagram.present?
     end
 
     def username
-      Ryte.config.instagram[:username]
+      Settings.instagram[:username]
     end
 
     def url
