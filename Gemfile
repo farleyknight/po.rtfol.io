@@ -29,14 +29,14 @@ group :development do
   gem "pry"
   gem "pry-rails"
   gem 'sqlite3'
-  # gem "better_errors"
+  gem "better_errors"
 end
 
 group :production do
   gem 'pg'
 end
 
-
+gem 'gravatar-ultimate'
 gem 'octokit'
 
 # Rails 4 stuff

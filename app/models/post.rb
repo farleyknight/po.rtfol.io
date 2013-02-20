@@ -1,14 +1,36 @@
 class Post
   include ActionView::Helpers::SanitizeHelper
 
+  attr_accessor :attributes
+
   def initialize(attributes = {})
-    @id      = attributes['ID']
-    @title   = attributes['title']
-    @body    = attributes['content']
-    @excerpt = attributes['excerpt']
-    @date    = Date.parse attributes['date']
-    @tags    = attributes['tags']
+    @attributes = attributes
+    @id         = attributes['ID'] || attributes['id']
+    @title      = attributes['title']
+    @body       = attributes['content']
+    @excerpt    = attributes['excerpt']
+    @date       = Date.parse attributes['date']
+    @tags       = attributes['tags']
+    @type       = attributes['type'] || "text"
+    @caption    = attributes['caption']
+    @photos     = attributes['photos'].map {|hash| Photo.new(hash["original_size"]) }
   end
+
+  #
+  # @group type
+  #
+
+  def text?
+    @type == "text"
+  end
+
+  def photo?
+    @type == "photo"
+  end
+
+  #
+  # @group id
+  #
 
   def id
     @id
@@ -16,9 +38,33 @@ class Post
 
   alias :to_param :id
 
-  def show_more?
-    true
+  #
+  # @group photos
+  #
+
+  def photos
+    @photos
   end
+
+  def photo
+    photos.first
+  end
+
+  #
+  # @group caption
+  #
+
+  def caption
+    @caption
+  end
+
+  def caption?
+    @caption.present?
+  end
+
+  #
+  # @group tags
+  #
 
   def tags?
     @tags.present?
@@ -28,8 +74,12 @@ class Post
     @tags
   end
 
-  def formatted_date
-    @date.strftime("%B %d, %Y")
+  #
+  # @group content
+  #
+
+  def show_more?
+    @body.present?
   end
 
   def excerpt
@@ -38,6 +88,14 @@ class Post
 
   def body
     @body
+  end
+
+  #
+  # @group meta
+  #
+
+  def formatted_date
+    @date.strftime("%B %d, %Y")
   end
 
   def meta_description
@@ -52,19 +110,27 @@ class Post
     @title
   end
 
-  class << self
-    def find(post_id)
-      Post.new(Wordpress.find(post_id))
-    end
+  class NoBloggingPlatform < Exception; end
 
-    def wordpress
-      Wordpress.posts.parsed_response["posts"].map do |post|
-        Post.new(post)
+  class << self
+    def source
+      if ::Wordpress.enabled?
+        ::Wordpress
+      elsif ::Tumblr.enabled?
+        ::Tumblr
+      else
+        raise NoBloggingPlatform.new("No blogging platform has been picked!")
       end
     end
 
+    def find(post_id)
+      new(source.find(post_id))
+    end
+
     def all
-      wordpress
+      source.posts.map do |post|
+        Post.new(post)
+      end
     end
   end
 end

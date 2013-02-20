@@ -1,0 +1,36 @@
+<article id="<%= post.id %>">
+  <hgroup>
+    <!--
+        <h2><a href="/post/{{ id }}">Photo</a></h2>
+        -->
+    <h3><a href="#<%= post.id %>"><%= post.formatted_date %></a></h3>
+  </hgroup>
+
+  <% post.photos.each do |photo| %>
+    <p><img src="<%= photo['url'] %>" width="<%= photo['width'] %>" height="<%= photo['height'] %>" /></p>
+    <% if photo.caption? %>
+      <%= raw photo.caption %>
+    <% end %>
+  <% end %>
+
+  <% if post.caption? %>
+    <%= raw post.caption %>
+  <% end %>
+
+  <footer>
+    <% if post.tags? %>
+      <h4>Tags</h4>
+      <ul class="tags">
+        <% post.tags.each do |tag| %>
+          <li><% link_to tag, tag_path(tag) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if Disqus.enabled? %>
+      <div id="disqus_thread" class="disqus-thread">
+        <a href="/post/<%= post.id %>#disqus_thread" class="comments"></a>
+      </div>
+    <% end %>
+  </footer>
+</article>

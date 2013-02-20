@@ -60,11 +60,15 @@ module Twitter
       @account ||= Twitter::Account.new(HTTParty.get(url_for(username)))
     end
 
-    def url?
+    def url
+      "http://twitter.com/#!/#{username}"
+    end
+
+    def account_url?
       account.url.present?
     end
 
-    def url
+    def account_url
       account.url
     end
 

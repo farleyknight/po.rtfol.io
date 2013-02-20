@@ -1,5 +1,11 @@
 <section class="main-section blog-section" id="blog-posts">
   <% Post.all.each do |post| %>
-    <%= render partial: "posts/content", locals: {post: post, content: post.excerpt, show_more: true} %>
+    <% if post.text? %>
+      <%= render partial: "posts/text", locals: {post: post, content: post.excerpt, show_more: true} %>
+    <% elsif post.photo? %>
+      <%= render partial: "posts/photo", locals: {post: post, image: post.photo, caption: true} %>
+    <% else %>
+      <% raise Error.new("Post type could not be determined! Post id: #{post.id}") %>
+    <% end %>
   <% end %>
 </section>

@@ -1,15 +1,23 @@
 class Wordpress
-  include HTTParty
-
   class << self
-    API_URL = "https://public-api.wordpress.com/rest/v1/sites/"
+    def enabled?
+      Settings.wordpress.present?
+    end
+
+    def url
+      Settings.wordpress[:url]
+    end
 
     def posts_url
-      API_URL + Settings.wordpress[:url] + "/posts"
+      "https://public-api.wordpress.com/rest/v1/sites/#{url}/posts"
+    end
+
+    def request_posts
+      HTTParty.get(posts_url)
     end
 
     def posts
-      get(posts_url)
+      request_posts.parsed_response["posts"]
     end
 
     def post_url(post_id)
@@ -17,7 +25,7 @@ class Wordpress
     end
 
     def find(post_id)
-      get(post_url(post_id))
+      HTTParty.get(post_url(post_id))
     end
   end
 end

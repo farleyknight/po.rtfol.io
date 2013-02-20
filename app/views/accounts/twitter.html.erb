@@ -22,8 +22,9 @@
         <span><%= Twitter.location %></span>
         <span class="divider">·</span>
       <% end %>
-      <% if Twitter.url? %>
-        <span><a href="<%= Twitter.url %>"><%= Twitter.url %></a></span>
+
+      <% if Twitter.account_url? %>
+        <span><a href="<%= Twitter.account_url %>"><%= Twitter.account_url %></a></span>
       <% end %>
     </p>
   </div>

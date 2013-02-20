@@ -1,7 +1,9 @@
-<header class="main-header">
+/<header class="main-header">
   <hgroup>
     <div class="picture">
-      <a href="/" rel="home"></a>
+      <a href="/" rel="home">
+        <%= image_tag(Personal.gravatar_image) %>
+      </a>
     </div>
     <h1><%= Personal.full_name %></h1>
     <h2><%= raw Personal.description %></h2>

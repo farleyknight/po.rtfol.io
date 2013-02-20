@@ -12,6 +12,14 @@ module Personal
       Settings.personal[:email]
     end
 
+    def gravatar_email
+      Settings.personal[:gravatar_email] || Settings.personal[:email]
+    end
+
+    def gravatar_image
+      Gravatar.new(gravatar_email).image_url
+    end
+
     def subject
       Settings.personal[:subject_line] || "Hello"
     end
