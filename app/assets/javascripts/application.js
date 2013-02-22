@@ -15,4 +15,6 @@
 //= require bootstrap
 //= require bootstrap-modal
 //= require turbolinks
+//= require jquery.spin
 //= require_tree .
+

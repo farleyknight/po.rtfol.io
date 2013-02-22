@@ -12,3 +12,8 @@
  */
 
 @import "bootstrap";
+
+.spin {
+  height: 100px;
+  padding: 40px; !important
+}

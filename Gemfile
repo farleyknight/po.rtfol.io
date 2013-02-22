@@ -24,6 +24,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'spinjs-rails'
 
 group :development do
   gem "binding_of_caller"

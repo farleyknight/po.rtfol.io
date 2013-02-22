@@ -46,13 +46,15 @@ Ryte::Application.routes.draw do
   #     resources :products
   #   end
 
-  resources :posts
+  resources :posts do
+    get :all, on: :collection
+  end
 
   match '/tags/:name' => 'tags#by_name', as: :tag
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'posts#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
