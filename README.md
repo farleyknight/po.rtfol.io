@@ -6,7 +6,7 @@ A Rails clone of Syte: https://github.com/rigoneri/syte
 
 Grab the latest development version.
 
-```git clone git@github.com:farleyknight/ryte.git```
+```git clone git@github.com:farleyknight/po.rtfol.io.git```
 
 Copy ``config/settings.example.yml`` to ```config/settings.yml```
 
