@@ -62,5 +62,11 @@ module Ryte
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.after_initialize do
+      if Settings.personal.blank?
+        raise "Personal section from settings.yml! Please see the README."
+      end
+    end
   end
 end

@@ -1,5 +1,0 @@
-== Ryte
-
-A Rails clone of Syte: https://github.com/rigoneri/syte
-
-@todo (farleyknight@gmail.com): Add better documentation
