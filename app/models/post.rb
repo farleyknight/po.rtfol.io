@@ -13,7 +13,9 @@ class Post
     @tags       = attributes['tags']
     @type       = attributes['type'] || "text"
     @caption    = attributes['caption']
-    @photos     = attributes['photos'].map {|hash| Photo.new(hash["original_size"]) }
+    unless attributes['photos'].blank?
+      @photos     = attributes['photos'].map {|hash| Photo.new(hash["original_size"]) }
+    end
   end
 
   #
