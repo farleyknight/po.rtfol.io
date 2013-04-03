@@ -4,6 +4,6 @@
   <% elsif post.photo? %>
     <%= render partial: "posts/photo", locals: {post: post, image: post.photo, caption: true} %>
   <% else %>
-    <% raise Error.new("Post type could not be determined! Post id: #{post.id}") %>
+    <%= render partial: "posts/text", locals: {post: post, content: post.excerpt, show_more: true} %>
   <% end %>
 <% end %>
